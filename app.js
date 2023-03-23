@@ -43,11 +43,6 @@ app.post('/login', (req, res) => {
     .catch(error => console.log(error))
 })
 
-app.get('/welcome', (req, res) => {
-  const { email, password } = req.body
-  console.log(email)
-})
-
 app.listen(PORT, () => {
   console.log(`This app running on http://localhost:${PORT}`)
 })
