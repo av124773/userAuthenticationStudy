@@ -34,16 +34,11 @@ app.get('/', (req, res) => {
 
 app.post('/login', (req, res) => {
   const {email, password} = req.body
-  return User.findOne({email: email})
+  return User.findOne({email: email, password: password})
     .lean()
     .then(user => {
-      if (user !== null) {
-        console.log(user.firstName)
-        res.render('welcome', {user})
-        // res.redirect('get/welcome')
-      } else {
-        res.redirect('/')
-      }
+      user ? res.render('welcome', { user }) 
+           : res.render('index', {noFind: 1})
     })
     .catch(error => console.log(error))
 })

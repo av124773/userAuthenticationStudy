@@ -1,14 +1,41 @@
 <div class="container">
-  <h1>Account Login</h1>
+  <div class="row">
+    <div class="col-auto mx-auto my-3">
+      <h1>Account Login</h1>
+    </div>
+  </div>
+
   <form action="/login" method="post">
-    <p>
-      <input type="email" placeholder="Email" name="email" required>
-    </p>
-
-    <p>
-      <input type="password" placeholder="Password" name="password" required>
-    </p>
-
-    <button type="submit">Sign in</button>
+    <div class="row">
+      <div class="col-auto mx-auto">
+        <p>
+          <input type="email" placeholder="Email" name="email" required>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-auto mx-auto">
+        <p>
+          <input type="password" placeholder="Password" name="password" required>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-auto mx-auto">
+        <button class="btn btn-outline-dark" type="submit">Sign in</button>
+      </div>
+    </div>
   </form>
+
+  {{#if noFind}}
+  <div class="row">
+    <div class="col-auto mx-auto mt-3">
+      <div class="alert alert-danger" role="alert">
+        找不到帳號或密碼錯誤
+      </div>
+    </div>
+  </div>
+  {{/if}}
+
 </div>
+
